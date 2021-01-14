@@ -1,0 +1,12 @@
+
+*.pdf
+*.txt
+*.aux
+*.log
+*.gz
+*.zip
+*.out
+*.toc
+
+__pycache__/
+
