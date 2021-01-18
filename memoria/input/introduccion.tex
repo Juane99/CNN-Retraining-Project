@@ -1,0 +1,47 @@
+\section{Introducción}
+
+\vspace{5 mm}
+
+\subsection{Motivación}
+
+\vspace{5 mm}
+
+El principal motivo por el que queremos desarrollar una CNN que reconozca platos de comida, concretamente platos de la cocina tradicional Vietnamita, es que no se trata de un campo muy explotado dentro de la clasificación de imágenes.
+
+\vspace{3 mm}
+
+Hay muchos papers que hablan de CNN para la clasificación de comida, donde se suele utilizar el famoso dataset \textbf{Food-101} para su entrenamiento. Estas CNN reconocen los platos de cómida más \textit{típicos} a nivel mundial, pero lo interesante y por lo que estamos haciendo este trabajo, es ver cómo podemos hacer que una CNN que reconozca estos platos \textit{típicos}, reconozca también platos tan concretos como los de la cocina Vietnamita.
+
+\vspace{3 mm}
+
+La Singapore Management University (SMU) desarrolló en el año 2017 una CNN llamada \textbf{foodai} capaz de reconocer 756 clases de comida entre las que había platos e ingredientes individuales. Si le pasamos a esta CNN la siguiente imagen la clasificaría sin problema como \textbf{Fried Pork Chop}:
+
+\vspace{5 mm}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\linewidth]{Imagenes/empanada.jpeg}  
+  \caption{Fried Pork Chop}
+  \label{fig:sub-first}
+\end{figure}
+
+\newpage
+
+Pero, ¿qué pasaría si le pasamos a la CNN un plato típico de la comida Vietnamita como puede ser el \textbf{Bun Bo Hue}?
+
+\vspace{5 mm}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\linewidth]{Imagenes/bunbohue.jpeg}  
+  \caption{Bun Bo Hue}
+  \label{fig:sub-first}
+\end{figure}
+
+\vspace{5 mm}
+
+La CNN no habrá sido entrenada con la clase \textbf{Bun Bo Hue} y por lo tanto no podrá clasificar el plato correctamente, por lo que lo clasificará en una clase parecida.
+
+\vspace{3 mm}
+
+Es por todo lo anterior que queremos desarrollar una CNN que reconozca platos típicos de la comida Vietnamita, al igual que platos más \textit{generales} y otras clases pertenecientes al dataset \textbf{ImageNet}.
