@@ -1,0 +1,20 @@
+\section{Revisión bibliográfica}
+
+El problema de clasificación de un tipo concreto de comida no es un problema muy común y por lo tanto estudiado. Como hemos visto en clase de teoría, el auge de la visión por computador se ha dado en el comienzo de la década del 2010, hace apenas diez años, con la aparición de modelos basados en redes neuronales convolucionales a pesar de que el modelo teórico de neurona y red neuronal llevan más tiempo en el ámbito de la informática. Esto ha sido en parte gracias al aumento de la capacidad de cómputo de los procesadores (tanto CPUs como procesadores gráficos) actuales.
+
+Por este motivo, como era de esperar, en estos últimos diez años el uso de redes neuronales convolucionales se ha centrado en mejorar sus resultados con distintas técnicas vistas en teoría, mejorar los tiempos de ejecución buscando algoritmos eficientes o simplemente aumentando la potencia de cómputo, y los problemas que se han tratado de resolver son problemas más generales y en el caso de tratar algún problema específico se trata de un problema de gran interes común.
+
+Estos motivos han llevado a que actualmente no se encuentre una gran cantidad de lecturas sobre nuestro problema concreto y las pocas que encontramos se tratan en su mayoría de comida en general sin distinguir su orgigen concreto, además de que estos experimentos comienzan a ser publicados a partir del año 2018.
+
+
+En este año encontramos un trabajo de tres investigadores de la Universidad de Indonesia sobre detección de comida tradicional de Betawi en imágenes\cite{betawiFood}. En este paper se intenta detectar este tipo de comida utilizando una red ya preentrenada con otro conjunto de datos, un problema muy similar al nuestro, donde se obtienen unos resultados aceptables con una precisión de entre el 70\% y el 80\% dependiendo de la complejidad de la red utilizada.
+
+Este es uno de los artículos que hemos encontrado donde se comienza a trabajar el problema de detección de comida, ya que como vemos en el paper citado como trabajos relacionados e introducción podemos encontrar que este trabajo surgió de una red neuronal profunda que consiguió muy buenos resultados a la hora de clasificar vehículos usando transferencia de conocimiento de una red ya preentrenada, por lo que los investigadores se interesaron en esto debido al gran impacto que conlleva el sector culinario en su país de origen.
+
+Con respecto a la metodología aplicada en el artículo, vemos como se centran en aplicar un ajuste fino y reentrenar únicamente las últimas capas de distintos modelos basados en ResNet y DenseNet de cara a reentrenar la parte de la red que aplica la clasificación como tal y no la extracción de características, evitando tener que reentrenar toda la red completa con el coste computacional que conlleva. Vemos como esto le da unos resultados bastante buenos, siendo el peor caso la red ResNet101 con un 70\% de precisión, y el mejor caso DenseNet169 con una precisión del 80\%.
+
+
+Como conclusiones de este trabajo encontramos que, si se realiza de forma correcta, el realizar un ajuste fino de una red con el nuevo conjunto de imágenes a entrenar podemos obtener un buen resultado, por lo que será lo primero que intentaremos hacer en nuestro proyecto, y a partir de ahí decidir si es necesario modificar las distintas capas de la red (ya sea añadiendo o eliminando capas), de cara a buscar unos mejores resultados.
+
+
+Tras esta artículo, podemos encontrar ... (seguir con bibliografia)
