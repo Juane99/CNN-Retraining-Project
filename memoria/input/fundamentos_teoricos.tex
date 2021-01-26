@@ -1,4 +1,3 @@
-\newpage
 \section{Fundamentos Teóricos}
 
 \vspace{5 mm}
@@ -17,7 +16,7 @@ Una Red Neuronal Convolucional consiste en un conjunto de capas de filtros convo
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\linewidth]{Imagenes/cnn.png}  
+  \includegraphics[width=0.5\linewidth]{Imagenes/cnn.png}
   \caption{CNN simulada en el Playground de TensorFlow}
   \label{fig:sub-first}
 \end{figure}
@@ -40,7 +39,7 @@ Después de aplicar una capa convolucional o una capa Fully-Connected hay que ap
 
 \vspace{2 mm}
 
-Por lo tanto, si no aplicasemos activaciones, los datos serían lineales y no podriamos alcanzar esa generalización que necesitamos en las últimas capas. Para darle no linealidad a los datos aplicamos dichas activaciones. 
+Por lo tanto, si no aplicasemos activaciones, los datos serían lineales y no podriamos alcanzar esa generalización que necesitamos en las últimas capas. Para darle no linealidad a los datos aplicamos dichas activaciones.
 
 \vspace{2 mm}
 
@@ -128,13 +127,13 @@ El \textbf{optimizador} utiliza la función de pérdida como guía para ir actua
 
 \vspace{2 mm}
 
-En este caso vamos a utilizar el optimizador \textbf{Adamax}, previamente estimado mediante GridSearchCV. Voy a intentar explicar lo que he entendido que hace con los pesos este optimizador. Antes de hablar de Adamax hay que hablar de \textbf{Adam}, ya que Adamax no es más que una generalización de Adam que va de la normalización \textbf{l2} a la normalización \textbf{l-infinity}. La normalización \textbf{l-infinity} es aquella que de un vector de valores, va a minimizar siempre el mayor de todos ellos. 
+En este caso vamos a utilizar el optimizador \textbf{Adamax}, previamente estimado mediante GridSearchCV. Voy a intentar explicar lo que he entendido que hace con los pesos este optimizador. Antes de hablar de Adamax hay que hablar de \textbf{Adam}, ya que Adamax no es más que una generalización de Adam que va de la normalización \textbf{l2} a la normalización \textbf{l-infinity}. La normalización \textbf{l-infinity} es aquella que de un vector de valores, va a minimizar siempre el mayor de todos ellos.
 
 \vspace{5 mm}
 
 Sabemos que la función que utiliza Adam para ir actualizando los pesos es la siguiente:
 
-\[w_t = w_{t-1} - lr  \frac{m_t}{\sqrt{v_t} + e} \] 
+\[w_t = w_{t-1} - lr  \frac{m_t}{\sqrt{v_t} + e} \]
 
 Siendo lr el \textbf{learning rate}, y mt y vt estimadores del primer y segundo \textbf{momento} del gradiente respectivamente. La \textbf{e} es un valor muy pequeño que se utiliza para no dividir nunca entre 0.
 
@@ -142,11 +141,11 @@ Siendo lr el \textbf{learning rate}, y mt y vt estimadores del primer y segundo 
 
 Pues sabiendo esto, lo que hace Adamax es una pequeña modificación de la función de actualización de pesos de Adam, quedándose así:
 
-\[w_t = w_{t-1} - \frac{lr}{v_t} m_t   \] 
+\[w_t = w_{t-1} - \frac{lr}{v_t} m_t   \]
 
 Lo que nos dice la literatura es que Adamax es más robusto al ruido en los gradientes al usar esta nueva función de actualización de pesos. Se llega a ella mediante cálculos matemáticos que surgen de estar usando una normalización \textbf{l-infinity}.
 
-\vspace{5 mm}	
+\vspace{5 mm}
 
 Finalmente nos va a hacer falta establecer una \textbf{métrica} a la hora de compilar nuestro modelo. La métrica no va a influir en el aprendizaje, si no que va a ser una manera de que podamos ver lo bien que esta prediciendo nuestro modelo en cada etapa. La métrica que vamos a usar en este caso es la \textbf{accuracy}. Esta métrica divide el número de clases bien predichas entre el total de clases. Por lo que si nuestro modelo predice bien 180 etiquetas de las 300 etiquetas totales, diremos que tiene una accuracy del 60 porciento.
 
