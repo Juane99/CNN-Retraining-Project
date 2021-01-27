@@ -47,7 +47,45 @@ Para evaluar cada una de las arquitecturas se usa el \textbf{accuracy} como mét
 
 \vspace{5 mm}
 
-Al analizar la tabla, en el paper se llega a la conclusión de que una arquitectura será mejor u otra dependiendo de si se usa CPU o GPU en el proceso de entrenamiento. La arquitectura que mejor detecta los platos tradicionales Betawi es \textbf{DenseNet169} usando CPU y \textbf{ResNet50} usando GPU. Tendremos en cuenta estos resultados a la hora de implementar nuestro proyecto. 
+Al analizar la tabla, en el paper se llega a la conclusión de que una arquitectura será mejor u otra dependiendo de si se usa CPU o GPU en el proceso de entrenamiento. La arquitectura que mejor detecta los platos tradicionales Betawi es \textbf{DenseNet169} usando CPU y \textbf{ResNet50} usando GPU. Tendremos en cuenta estos resultados a la hora de implementar nuestro proyecto.
+
+\newpage
+
+Tan solo medio año despues dos investigadores de Google Research publicaron una publicación llamada \textit{EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks}. Aunque esta publicación se centra en mejorar el escalado de redes neuronales convolucionales, una de las bases de datos utilizada será \textbf{Food101}, a pesar ser un problema más general que el nuestro, nos puede llegar a ser de gran utilidad debido a sus similitudes.
+
+El principal objetivo de este trabajo se centra en explicar las diferencias entre los tipos de escalado de una red neuronal, así como buscar un equilibrio entre dichos escalados de cara a encontrar una red neuronal en la que se consigan buenos resultados, minimizando el número de parámetros de la red, y por lo tanto que el coste computacional sea menor.
+
+Los tipos de escalado, como hemos visto, pueden ser en profundidad, en anchura, y en resolución de una misma capa.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\linewidth]{Imagenes/scalecompare.pdf}
+  \caption{Número de parámetros de la red y precisión en ImageNet.}
+  \label{fig:param-precision}
+\end{figure}
+
+
+Tras trabajar este escalado, buscando un óptimo, la red resultante consigue muy buenos resultados para el conjunto de imágenes ImageNet, superando a las otras redes con las que se ha comparado utilizando muchos menos parámetros:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\linewidth]{Imagenes/params.pdf}
+  \caption{Número de parámetros de la red y precisión en ImageNet.}
+  \label{fig:param-precision}
+\end{figure}
+
+Y por último, una vez comprobado que el resultado de ajustar el escalado de la red en el trabajo se trata el problema de la transferencia del conocimiento.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\linewidth]{Imagenes/cmp-efficient.png}
+  \caption{Comparación de EfficientNet con otras redes utilizando múltiples conjuntos de imágenes.}
+  \label{fig:param-precision}
+\end{figure}
+
+Como resultado, está red con casi diez veces menos parámetros sigue siendo competetitiva, e incluso mejor, que otras redes neuronales, también a la hora de transferir conocimiento a nuevas bases de datos para las que no está entrenada, entre ellas \textbf{Foof101} en la que se obtiene muy buenos resultados. Esto nos demuestra que, si se realiza de forma correcta, la transferencia de conocimiento se puede realizar en cualquier situación y será una parte importante del proyecto, además de que es posible realizar una disminución considerable del número de parámetros de cara a mejorar en tiempo la red.
+
 
 \newpage
 
@@ -78,6 +116,6 @@ Para evaluar todos estos modelos se ha usado una top-1 y una top-5 accuracy. La 
   \label{fig:sub-first}
 \end{figure}
 
-\vspace{5 mm} 
+\vspace{5 mm}
 
 Vemos que el modelo que mejores resultados ha proporcionado es \textbf{InceptionV3} con un preprocesado concreto y descongelando un conjunto concreto de capas en el tope de la red. Estos resultados también los tendremos muy en cuenta a la hora de realizar nuestro proyecto ya que se trata de algo similar a lo que tenemos que realizar.
