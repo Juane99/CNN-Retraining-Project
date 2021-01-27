@@ -6,21 +6,10 @@ Por este motivo, como era de esperar, en estos últimos diez años el uso de red
 
 Estos motivos han llevado a que actualmente no se encuentre una gran cantidad de lecturas sobre nuestro problema concreto y las pocas que encontramos se tratan en su mayoría de comida en general sin distinguir su orgigen concreto, además de que estos experimentos comienzan a ser publicados a partir del año 2018.
 
-
-En este año encontramos un trabajo de tres investigadores de la Universidad de Indonesia sobre detección de comida tradicional de Betawi en imágenes\cite{betawiFood}. En este paper se intenta detectar este tipo de comida utilizando una red ya preentrenada con otro conjunto de datos, un problema muy similar al nuestro, donde se obtienen unos resultados aceptables con una precisión de entre el 70\% y el 80\% dependiendo de la complejidad de la red utilizada.
+El día 27 de Octubre de ese mismo año se presentó en una conferencia del \textbf{ICACSIS} un paper llamado \textit{Betawi Traditional Food Image Detection using
+ResNet and DenseNet}. Este paper se centraba en usar diferentes arquitecturas de Deep-Learning para detectar imágenes de platos de la cocina tradicional Betawi, quedándose finalmente con el mejor modelo encontrado.
 
 Este es uno de los artículos que hemos encontrado donde se comienza a trabajar el problema de detección de comida, ya que como vemos en el paper citado como trabajos relacionados e introducción podemos encontrar que este trabajo surgió de una red neuronal profunda que consiguió muy buenos resultados a la hora de clasificar vehículos usando transferencia de conocimiento de una red ya preentrenada, por lo que los investigadores se interesaron en esto debido al gran impacto que conlleva el sector culinario en su país de origen.
-
-Con respecto a la metodología aplicada en el artículo, vemos como se centran en aplicar un ajuste fino y reentrenar únicamente las últimas capas de distintos modelos basados en ResNet y DenseNet de cara a reentrenar la parte de la red que aplica la clasificación como tal y no la extracción de características, evitando tener que reentrenar toda la red completa con el coste computacional que conlleva. Vemos como esto le da unos resultados bastante buenos, siendo el peor caso la red ResNet101 con un 70\% de precisión, y el mejor caso DenseNet169 con una precisión del 80\%.
-
-
-Como conclusiones de este trabajo encontramos que, si se realiza de forma correcta, el realizar un ajuste fino de una red con el nuevo conjunto de imágenes a entrenar podemos obtener un buen resultado, por lo que será lo primero que intentaremos hacer en nuestro proyecto, y a partir de ahí decidir si es necesario modificar las distintas capas de la red (ya sea añadiendo o eliminando capas), de cara a buscar unos mejores resultados.
-
-
-\vspace{5 mm}
-
-El día 27 de Octubre de 2018 se presentó en una conferencia del \textbf{ICACSIS} un paper llamado \textit{Betawi Traditional Food Image Detection using
-ResNet and DenseNet}. Este paper se centraba en usar diferentes arquitecturas de Deep-Learning para detectar imágenes de platos de la cocina tradicional Betawi, quedándose finalmente con el mejor modelo encontrado.
 
 \vspace{3 mm}
 
@@ -30,9 +19,7 @@ En este paper se usaron 1400 imágenes repartidas en el conjunto de training y d
 
 El paper usa 2 arquitecturas de Deep-Learning diferentes, \textbf{ResNet(50,101,152)} y \textbf{DenseNet(121,161,169)}. La diferencia entre cada una de las versiones anteriores reside en el número de capas que se usan. Cuantas más capas se usen, más bajo el error de la función de pérdida.
 
-\vspace{3 mm}
-
-Para evaluar cada una de las arquitecturas se usa el \textbf{accuracy} como métrica y el \textbf{cross entropy loss} como función de pérdida. Para comparar cada una de las arquitecturas entre ellas se ha hecho un ranking de los valores de cada arquitectura normalizados. La tabla con el ranking mencionado es la siguiente:
+Con respecto a la metodología aplicada en el artículo, vemos como se centran en aplicar un ajuste fino y reentrenar únicamente las últimas capas de distintos modelos basados en ResNet y DenseNet de cara a reentrenar la parte de la red que aplica la clasificación como tal y no la extracción de características, evitando tener que reentrenar toda la red completa con el coste computacional que conlleva. Vemos como esto le da unos resultados bastante buenos, siendo el peor caso la red ResNet101 con un 70\% de precisión, y el mejor caso DenseNet169 con una precisión del 80\%.La tabla con el ranking mencionado es la siguiente:
 
 \vspace{5 mm}
 
@@ -45,7 +32,8 @@ Para evaluar cada una de las arquitecturas se usa el \textbf{accuracy} como mét
 
 \vspace{5 mm}
 
-Al analizar la tabla, en el paper se llega a la conclusión de que una arquitectura será mejor u otra dependiendo de si se usa CPU o GPU en el proceso de entrenamiento. La arquitectura que mejor detecta los platos tradicionales Betawi es \textbf{DenseNet169} usando CPU y \textbf{ResNet50} usando GPU. Tendremos en cuenta estos resultados a la hora de implementar nuestro proyecto.
+
+Como conclusiones de este trabajo encontramos que, si se realiza de forma correcta, el realizar un ajuste fino de una red con el nuevo conjunto de imágenes a entrenar podemos obtener un buen resultado, por lo que será lo primero que intentaremos hacer en nuestro proyecto, y a partir de ahí decidir si es necesario modificar las distintas capas de la red (ya sea añadiendo o eliminando capas), de cara a buscar unos mejores resultados.
 
 \newpage
 
