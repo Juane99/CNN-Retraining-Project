@@ -17,8 +17,6 @@ Con respecto a la metodología aplicada en el artículo, vemos como se centran e
 Como conclusiones de este trabajo encontramos que, si se realiza de forma correcta, el realizar un ajuste fino de una red con el nuevo conjunto de imágenes a entrenar podemos obtener un buen resultado, por lo que será lo primero que intentaremos hacer en nuestro proyecto, y a partir de ahí decidir si es necesario modificar las distintas capas de la red (ya sea añadiendo o eliminando capas), de cara a buscar unos mejores resultados.
 
 
-Tras esta artículo, podemos encontrar ... (seguir con bibliografia)
-
 \vspace{5 mm}
 
 El día 27 de Octubre de 2018 se presentó en una conferencia del \textbf{ICACSIS} un paper llamado \textit{Betawi Traditional Food Image Detection using
@@ -119,3 +117,35 @@ Para evaluar todos estos modelos se ha usado una top-1 y una top-5 accuracy. La 
 \vspace{5 mm}
 
 Vemos que el modelo que mejores resultados ha proporcionado es \textbf{InceptionV3} con un preprocesado concreto y descongelando un conjunto concreto de capas en el tope de la red. Estos resultados también los tendremos muy en cuenta a la hora de realizar nuestro proyecto ya que se trata de algo similar a lo que tenemos que realizar.
+
+
+\newpage
+
+Por último nos encontramos con un artículo de la Universidad de Malasia, publicado a principios de este cuatrimestre hace tan solo cinco meses,
+\textit{Food Recognition with ResNet-50}\cite{food-resnet}.
+
+Este documento es el que más se centra en el desarrollo del problema como tal, y explica paso a paso el desarrollo del problema, de nuevo haciendo un ajuste fino debido al coste computacional, pero realizando lo que buscamos en nuestro caso.
+
+Explica que en este caso simplemente se aplica un preprocesado de cara a redimensionar las imágenes, de forma que estas tengan la forma de la entrada de la red ResNet-50.
+
+Tras esto explica los fundamentos teóricos ya vistos en teoría y explicados del funcionamiento de la red, desde la forma de trabajar e importancia de cada capa en concreto a la red en conjunto.
+
+Tras explicar la metodología se experimenta con tres bases de datos distintas, \textbf{ETHZ FOOD-101}, \textbf{UECFOOD100} y \textbf{UECFOOD256}. En este caso son imágenes que contienen gran variedad de comida y se han usado los siguientes parámetros para su ajuste fino:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\linewidth]{Imagenes/parametros_food_resnet.png}
+  \caption{Parámetros para el ajuste fino de la red con los distintos datasets.}
+  \label{fig:sub-first}
+\end{figure}
+
+Tras realizar el ajuste fino se comparó con otros modelos y se obtuvieron los siguientes resultados:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\linewidth]{Imagenes/resultados_resnet_food.png}
+  \caption{Resultados y comparación con otros modelos.}
+  \label{fig:sub-first}
+\end{figure}
+
+Como vemos, se mejora bastante los resultados, pero siguen sin ser unos resultados muy buenos, lo que nos hace pensar que es posible realizar ese ajuste fino, pero si añadimos detalles de metodología vistos en la bibliografía comentada, como por ejemplo el escalado de la red o desconjelando partes del modelo para que también se reentrenen además del ajuste fino de las últimas capas seremos capaces de mejorar el resultado.
