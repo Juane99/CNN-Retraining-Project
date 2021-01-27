@@ -18,3 +18,66 @@ Como conclusiones de este trabajo encontramos que, si se realiza de forma correc
 
 
 Tras esta artículo, podemos encontrar ... (seguir con bibliografia)
+
+\vspace{5 mm}
+
+El día 27 de Octubre de 2018 se presentó en una conferencia del \textbf{ICACSIS} un paper llamado \textit{Betawi Traditional Food Image Detection using
+ResNet and DenseNet}. Este paper se centraba en usar diferentes arquitecturas de Deep-Learning para detectar imágenes de platos de la cocina tradicional Betawi, quedándose finalmente con el mejor modelo encontrado.
+
+\vspace{3 mm}
+
+En este paper se usaron 1400 imágenes repartidas en el conjunto de training y de test usando un K-fold con k = 5. El proceso de entrenamiento se realizó en cada caso dos veces usando 5 épocas la primera vez, y 10 épocas la segunda.
+
+\vspace{3 mm}
+
+El paper usa 2 arquitecturas de Deep-Learning diferentes, \textbf{ResNet(50,101,152)} y \textbf{DenseNet(121,161,169)}. La diferencia entre cada una de las versiones anteriores reside en el número de capas que se usan. Cuantas más capas se usen, más bajo el error de la función de pérdida.
+
+\vspace{3 mm}
+
+Para evaluar cada una de las arquitecturas se usa el \textbf{accuracy} como métrica y el \textbf{cross entropy loss} como función de pérdida. Para comparar cada una de las arquitecturas entre ellas se ha hecho un ranking de los valores de cada arquitectura normalizados. La tabla con el ranking mencionado es la siguiente:
+
+\vspace{5 mm}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\linewidth]{Imagenes/tablapaper1.png}
+  \caption{Accuracy de Testing}
+  \label{fig:sub-first}
+\end{figure}
+
+\vspace{5 mm}
+
+Al analizar la tabla, en el paper se llega a la conclusión de que una arquitectura será mejor u otra dependiendo de si se usa CPU o GPU en el proceso de entrenamiento. La arquitectura que mejor detecta los platos tradicionales Betawi es \textbf{DenseNet169} usando CPU y \textbf{ResNet50} usando GPU. Tendremos en cuenta estos resultados a la hora de implementar nuestro proyecto. 
+
+\newpage
+
+En Otoño de 2019 la Universidad de Stanford presentó un paper llamado \textit{Food Image Classification with Convolutional Neural Networks}. Los autores del mismo tenían la intención de ayudar a los servicios de restauración implementando un sistema que consiga clasificar bien los platos de sus menús para que los clientes tengan una mejor facilidad de elegir. Para ello usarán pesos preentrenados y aplicarán la técnica de transferencia de aprendizaje.
+
+\vspace{3 mm}
+
+En este paper han usado 101000 imágenes del dataset \textbf{Food-101}, dividiéndolas a su vez en el set de entrenamiento y de test. Los pesos preentrenados que se han cogido son los del dataset \textbf{ImageNet}.
+
+\vspace{3 mm}
+
+Las imágenes han sido redimensionadas a un tamaño concreto antes de realizar el entrenamiento, a parte de aplicarles la función de preprocesado del modelo que se esté usando. También se ha usado \textbf{DataAugmentation} para evitar el overfitting.
+
+\vspace{3 mm}
+
+A la hora de realizar la transferencia de aprendizaje se han usado los modelos \textbf{AlexNet}, \textbf{VGG16}, \textbf{ResNet50} y \textbf{InceptionV3}. Al cargar los modelos se ha cambiado la última capa por otra Fully-Connected que tenga tantas neuronas como clases tenga el dataset \textbf{Food-101}. Además de todo esto, por cada modelo se han tuneado las características de las capas superiores, adición de capas Dropout y estimación de los hiperparámetros del optimizador.
+
+\vspace{3 mm}
+
+Para evaluar todos estos modelos se ha usado una top-1 y una top-5 accuracy. La función de pérdida usada es \textbf{categorical cross entropy}. La tabla de resultados de cada una de los modelos es la siguiente:
+
+\vspace{5 mm}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\linewidth]{Imagenes/tablapaper3.png}
+  \caption{Accuracy de Testing}
+  \label{fig:sub-first}
+\end{figure}
+
+\vspace{5 mm} 
+
+Vemos que el modelo que mejores resultados ha proporcionado es \textbf{InceptionV3} con un preprocesado concreto y descongelando un conjunto concreto de capas en el tope de la red. Estos resultados también los tendremos muy en cuenta a la hora de realizar nuestro proyecto ya que se trata de algo similar a lo que tenemos que realizar.
