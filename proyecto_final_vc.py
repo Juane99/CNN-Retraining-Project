@@ -451,7 +451,7 @@ predicciones_efficientnet = red_efficientnet_b0.predict_generator(test_datagen_e
                                                             steps = len(x_test))
 
 accuracy = calcularAccuracy(y_test,predicciones_efficientnet)
-print("Accuracy con EfficientNetB0 entrenando solo ultima capa: {}".format(accuracy))
+print("Accuracy con EfficientNetB0 entrenando las ultimas 5 capas: {}".format(accuracy))
 
 
 matriz_confusion(y_test, predicciones_efficientnet)
@@ -518,7 +518,7 @@ predicciones_inception = red_inception.predict_generator(test_datagen_inception.
                                                             steps = len(x_test))
 
 accuracy = calcularAccuracy(y_test,predicciones_inception)
-print("Accuracy con InceptionV3 entrenando solo ultima capa: {}".format(accuracy))
+print("Accuracy con InceptionV3 entrenando las ultimas 5 capas: {}".format(accuracy))
 
 
 matriz_confusion(y_test, predicciones_inception)
