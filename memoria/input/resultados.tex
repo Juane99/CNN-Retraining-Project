@@ -27,7 +27,7 @@
 Accuracy con ResNet50 entrenando solo ultima capa: 0.8180439727065959
 \end{lstlisting}
 
-
+Vemos que si entrenamos solamente la última capa de ResNet-50, congelando el resto de pesos, obtenemos una Accuracy cercana al 82$%$. Las curvas mostradas en la \textbf{Figura 16} nos dan a entender que el modelo produce un poco de overfitting y que una posible mejora puede ser aplicar técnicas de regularización al mismo. Vamos a ver qué pasa si después de entrenar la última capa, realizamos un ajuste fino de toda la red descongelando los pesos de la misma.
 
 \begin{figure}[H]
   \centering
@@ -51,7 +51,7 @@ Accuracy con ResNet50 entrenando solo ultima capa: 0.8180439727065959
 Accuracy con ResNet50 tras ajuste fino: 0.8180439727065959
 \end{lstlisting}
 
-
+Si observamos las curvas de precisión de la \textbf{Figura 19} podemos ver que al hacer el ajuste fino los resultados no mejoran. Esto lo podemos observar también al ver la Accuracy en Test, ya que es la misma que cuando hemos entrenado solamente la última capa. La Accuracy se ha mantenido porque estamos usando Early-Stopping y hemos mantenido los pesos que teníamos en vez de empeorarlos.
 
 \subsubsection{DenseNet-121}
 
@@ -182,6 +182,8 @@ Accuracy con InceptionV3 tras ajuste fino: 0.7687642153146323
 Accuracy con EfficientNetB0 entrenando solo ultima capa: 0.8612585291887794
 \end{lstlisting}
 
+Vemos que EfficientNetB0 comienza con una Accuracy muy alta si observamos las curvas de la \textbf{Figura 34}, llegando hasta un 86$%$ de Accuracy aproximadamente. Es uno de los resultados más altos que hemos obtenido hasta este momento entrenando solamente la capa de salida. Una posible mejora puede ser añadirle regularización a la red para que la curva de validación se mantenga más pegada a la de entrenamiento durante más tiempo. Vamos a ver qué pasa si después de entrenar la última capa, realizamos un ajuste fino de toda la red descongelando los pesos de la misma.
+
 
 \begin{figure}[H]
   \centering
@@ -207,7 +209,7 @@ Accuracy con EfficientNetB0 tras ajuste fino: 0.8627748294162244
 
 
 
-
+Vemos que al realizar el ajuste fino pasamos de un 86.12$%$ a un 86.27$%$. No se trata de un cambio apreciable como tal pero vamos que los pesos se han ajustado un poco mejor a los datos de nuestro dataset.
 
 
 
@@ -243,7 +245,7 @@ Accuracy con ResNet50 entrenando las cinco últimas capas: 0.821076573161486
 \end{lstlisting}
 
 
-
+Al entrenar las cinco últimas capas en vez de solamente la última, y añadir nuevas capas Dense, BatchNormalization y Dropout; obtenemos una accuracy del 82$%$ aproximadamente. Si miramos la Accuracy que obtuvimos cuando solo entrenamos la última capa, podemos apreciar una pequeña mejora. Vamos a ver que pasa si ahora hacemos un ajuste fino con estos nuevos pesos de las últimas capas.
 
 \begin{figure}[H]
   \centering
@@ -268,6 +270,8 @@ Accuracy con ResNet50 entrenando las cinco últimas capas: 0.821076573161486
 Accuracy con ResNet50 tras ajuste fino: 0.8256254738438211
 \end{lstlisting}
 
+
+Vemos que hemos mejorado un poco más, pasando de un 82.1$%$ a un 82.56$%$. No se trata de una mejora apreciable, como el resto de las mejoras que hemos observado, pero sabemos que estamos yendo por el camino correcto.
 
 \subsubsection{DenseNet-121}
 
@@ -399,6 +403,8 @@ Accuracy con EfficientNetB0 entrenando las cinco últimas capas: 0.8597422289613
 \end{lstlisting}
 
 
+Al añadir más capas y entrenar las últimas cinco podemos ver que se produce mucho más overfitting que cuando solo entrenamos la última capa (Figuras 34 y 58). Incluso la Accuracy en Test ha bajado de un 86.12$%$ a un 85.9$%$. Esta decisión ha perjudicado un poco el rendimiento de la red EfficientNetB0. Vamos a ver si al realizar Fine Tuning mejoramos o seguimos empeorando.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\linewidth]{Imagenes/entrenamiento_redes/5-ult/efficientnet_5fine_loss.png}
@@ -421,3 +427,6 @@ Accuracy con EfficientNetB0 entrenando las cinco últimas capas: 0.8597422289613
 \begin{lstlisting}
 Accuracy con EfficientNetB0 tras ajuste fino: 0.8567096285064443
 \end{lstlisting}
+
+
+Como vemos, al realizar Fine Tuning seguimos empeorando, lo que nos lleva a asegurar que las capas elegidas y descongeladas no han sido las más adecuadas para mejorar el rendimiento de la red.
