@@ -78,7 +78,7 @@ Si observamos las curvas de precisión de la \textbf{Figura 19} podemos ver que 
 Accuracy con DenseNet121 entrenando solo ultima capa: 0.8377558756633814
 \end{lstlisting}
 
-
+Con DenseNet121, a diferencia que con ResNet50, vemos como no encontramos tanto sobreajuste tras las primeras épocas, aunque los valores de precisión en el conjunto de test son muy similares, aunque un poco mejores que en ResNet50. Observamos como de nuevo es capaz de clasificar las clases sin mucho problema, a excepción de un par de casos concretos que comentaremos al final de los resultados.
 
 
 
@@ -105,7 +105,7 @@ Accuracy con DenseNet121 entrenando solo ultima capa: 0.8377558756633814
 Accuracy con DenseNet121 tras ajuste fino: 0.8385140257771039
 \end{lstlisting}
 
-
+ Tras aplicar el fine tuning en DenseNet121 mejora muy levemente, de forma casi imperceptible. Como vemos, en ambos casos se ha obtenido buenos resultados lo que nos da a entender que en DenseNet121 los pesos de ImageNet funcionan bastante bien para nuestro problema.
 
 \subsubsection{InceptionV3}
 
@@ -132,6 +132,8 @@ Accuracy con DenseNet121 tras ajuste fino: 0.8385140257771039
 Accuracy con InceptionV3 entrenando solo ultima capa: 0.7672479150871873
 \end{lstlisting}
 
+Utilizando InceptionV3 comenzamos con unos buenos valores de precisión para ser el comienzo del entrenamiento, pero a diferencia de las otras redes InceptionV3 no es capaz de mejorar en gran cantidad el resultado. Ahora comprobaremos si con las mejoras estos resultados cambian.
+
 
 \begin{figure}[H]
   \centering
@@ -155,6 +157,8 @@ Accuracy con InceptionV3 entrenando solo ultima capa: 0.7672479150871873
 \begin{lstlisting}
 Accuracy con InceptionV3 tras ajuste fino: 0.7687642153146323
 \end{lstlisting}
+
+En este caso el ajuste fino no cambia demasiado, ya que como hemos comentado los pesos de ImageNet se comportan bastante bien para este problema y el ajuste fino no es realmente necesario.
 
 
 \subsubsection{EfficientNetB0}
@@ -298,6 +302,7 @@ Vemos que hemos mejorado un poco más, pasando de un 82.1\% a un 82.56\%. No se 
 Accuracy con DenseNet121 entrenando las ultimas 5 capas: 0.8339651250947687
 \end{lstlisting}
 
+En este caso vemos que no se mejora los valores de precisión, pero si logramos hacer el entrenamiento mucho más rápido, utilizando la mitad de épocas para obtener el mismo resultado gracias al early stopping.
 
 
 \begin{figure}[H]
@@ -322,6 +327,7 @@ Accuracy con DenseNet121 entrenando las ultimas 5 capas: 0.8339651250947687
 Accuracy con DenseNet121 tras ajuste fino: 0.8263836239575436
 \end{lstlisting}
 
+En este caso el ajuste fino tampoco ha mejorado el resultado, lo ha mantenido. Para DenseNet los parámetros de ImageNet son muy buenos y apenas apreciamos mejoras.
 
 
 \subsubsection{InceptionV3}
@@ -374,7 +380,7 @@ Accuracy con InceptionV3 entrenando las cinco últimas capas: 0.7589082638362395
 Accuracy con InceptionV3 tras ajuste fino: 0.7649734647460197
 \end{lstlisting}
 
-
+En este caso el ajuste fino si que ha ayudado a mejorar el resultado, aunque muy levemente, aumentando la precisión en un 1\%. Aunque hemos logrado obtener un mejor resultado, esta red sigue siendo la peor en comparación con las demás, por lo que no es recomendable utilizarla para nuestro problema.
 
 \subsubsection{EfficientNetB0}
 
