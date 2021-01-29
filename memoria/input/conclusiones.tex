@@ -4,7 +4,11 @@
 
 Después de realizar todas las pruebas de la sección anterior podemos concluir que el modelo preentrenado en \textbf{ImageNet} que mejor funciona con nuestro dataset es \textbf{EfficientNetB0} tras realizar un Ajuste Fino entrenando previamente la última capa solamente. Este modelo llega a alcanzar un \textbf{0.8627748294162244} de Accuracy. Hay que comentar que si hubiésemos usado una de las últimas versiones de EfficientNet, por ejemplo la B7, posiblemente la Accuracy hubiese sido mejor. No hemos podido hacer la prueba empírica debido al coste computacional que conlleva cargar un modelo con tantos parámetros, pero lo apuntamos como posible mejora.
 
-\subsection{Trasnferencia de conocimiento de ImageNet}
+\subsection{Transferencia de conocimiento de ImageNet}
+
+Tras todas las pruebas y experimentos vemos como el conjunto de nuevas imágenes ha obtenido muy buenos resultados y esto es gracias a los pesos heredados de ImageNet. Como hemos visto en teoría, el conjunto de ImageNet cuenta con mil clases distintas, muchas de ellas ya pertenecientes a comida que aunque no sea en concreto nuestro problema ni sea similar como vimos en la revisión bibliográfica, hemos conseguido alcanzar muy buenos resultados reentrenando estas redes para este problema.
+
+Como conclusión podemos obtener que este paso es muy importante y de gran ayuda en el entrenamiento debido a la gran variedad de clases con las que está entrenado ImageNet, permitiendo que gran cantidad de problemas que podamos encontrar tengan cierta similutud con alguna de las clases de ImageNet.
 
 
 \subsection{Fallos comunes entre los modelos utilizados}
