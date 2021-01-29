@@ -43,7 +43,7 @@ Por lo tanto, si no aplicasemos activaciones, los datos serían lineales y no po
 
 \vspace{2 mm}
 
-En nuestro caso usaremos activaciones \textbf{relu}. Esta activación pasa los datos por la siguiente función:
+Las activaciones más comunes dentro de las redes que comentaremos en posteriores apartados son las \textbf{ReLU}. Esta activación pasa los datos por la siguiente función:
 
 \[g(z) = max(0, z)\]
 
@@ -108,7 +108,7 @@ Lo que hace esta función es, para cada conjunto de probabilidades de salida de 
 
 \vspace{2 mm}
 
-Voy a ejemplificar esto con tres etiquetas para que se entienda mejor. Imaginemos que tenemos las etiquetas \textbf{perro}, \textbf{gato} y \textbf{pájaro} y que al introducir en nuestra red una imagen de un perro obtenemos las probabilidades \textbf{0.8}, \textbf{0.6} y \textbf{0.1} respectivamente. Nuestro vector \textbf{"y"} sería \textbf{[1,0,0]} en este caso porque la única etiqueta correcta es \textbf{perro}.
+Vamos a ejemplificar esto con tres etiquetas para que se entienda mejor. Imaginemos que tenemos las etiquetas \textbf{perro}, \textbf{gato} y \textbf{pájaro} y que al introducir en nuestra red una imagen de un perro obtenemos las probabilidades \textbf{0.8}, \textbf{0.6} y \textbf{0.1} respectivamente. Nuestro vector \textbf{"y"} sería \textbf{[1,0,0]} en este caso porque la única etiqueta correcta es \textbf{perro}.
 
 \vspace{2 mm}
 
@@ -127,7 +127,7 @@ El \textbf{optimizador} utiliza la función de pérdida como guía para ir actua
 
 \vspace{2 mm}
 
-En este caso vamos a utilizar el optimizador \textbf{Adamax}, previamente estimado mediante GridSearchCV. Voy a intentar explicar lo que he entendido que hace con los pesos este optimizador. Antes de hablar de Adamax hay que hablar de \textbf{Adam}, ya que Adamax no es más que una generalización de Adam que va de la normalización \textbf{l2} a la normalización \textbf{l-infinity}. La normalización \textbf{l-infinity} es aquella que de un vector de valores, va a minimizar siempre el mayor de todos ellos.
+En este caso vamos a utilizar el optimizador \textbf{Adam}, previamente estimado mediante GridSearchCV.
 
 \vspace{5 mm}
 
@@ -139,20 +139,4 @@ Siendo lr el \textbf{learning rate}, y mt y vt estimadores del primer y segundo 
 
 \vspace{5 mm}
 
-Pues sabiendo esto, lo que hace Adamax es una pequeña modificación de la función de actualización de pesos de Adam, quedándose así:
-
-\[w_t = w_{t-1} - \frac{lr}{v_t} m_t   \]
-
-Lo que nos dice la literatura es que Adamax es más robusto al ruido en los gradientes al usar esta nueva función de actualización de pesos. Se llega a ella mediante cálculos matemáticos que surgen de estar usando una normalización \textbf{l-infinity}.
-
-\vspace{5 mm}
-
 Finalmente nos va a hacer falta establecer una \textbf{métrica} a la hora de compilar nuestro modelo. La métrica no va a influir en el aprendizaje, si no que va a ser una manera de que podamos ver lo bien que esta prediciendo nuestro modelo en cada etapa. La métrica que vamos a usar en este caso es la \textbf{accuracy}. Esta métrica divide el número de clases bien predichas entre el total de clases. Por lo que si nuestro modelo predice bien 180 etiquetas de las 300 etiquetas totales, diremos que tiene una accuracy del 60 porciento.
-
-\vspace{5 mm}
-
-Anteriormente hemos estimado que el mejor inicializador de pesos posible para nuestro modelo es \textbf{he\_normal}. Este inicializador saca las muestras de una distribución normal truncada centrada en 0 y con la siguiente desviación típica:
-
-\[stddev = sqrt(2 / fan_{in})\]
-
-Donde fan\_in es el número de unidades de entrada en el tensor de pesos.
