@@ -13,6 +13,20 @@ Como conclusión podemos obtener que este paso es muy importante y de gran ayuda
 
 \subsection{Fallos comunes entre los modelos utilizados}
 
-Al analizar las matrices de confusión nos hemos dado cuenta de que es común para todos los modelos confundir la clase 3 con la clase 7 y viceversa. 
+Al analizar las matrices de confusión nos hemos dado cuenta de que es común para todos los modelos confundir la clase 3 con la clase 7 y viceversa. Tras comprobar el conjunto de datos, podemos ver porque estos se tratan de platos muy similares, por lo que es normal tener un error un poco más alto con estas dos clases. Aun así, se consiguen muy buenos resultados, acertando entre un 80\% de las veces, que aunque es un valor bastante alto, está por debajo del error general.
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\linewidth]{Imagenes/cmp-c7-c3.png}
+  \caption{Comparación entre dos imágenes de la clase 3 (Banh canh) y 7 (Pho).}
+\end{figure}
+
+
+Como hemos comentado, esto solo es un ejemplo de muchas de las imágenes similares de ambas clases.
 
 \subsection{Posibles soluciones a estos fallos y futuras mejoras}
+
+Los principales problamas comentados podríamos solucionarlos aumentando el conjunto de imágenes de entrenamiento, ya que el principal problema que tiene a la hora de confundir clases es que no tiene suficientes imágenes distintas.
+
+Otro de los problemas que observamos es el sobreajuste. Este problema se presentaba en todas las redes utilizadas en mayor o menor medida, y hemos visto como el añadir al final capas de dropout y batch normalization ha ayudado a evitar este fenomeno, por lo que de cara a resolverlo podríamos probar a introducir más capas de este tipo a lo largo de la red.
