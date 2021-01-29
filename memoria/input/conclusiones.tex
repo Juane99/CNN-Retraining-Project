@@ -2,10 +2,13 @@
 
 \subsection{Mejor modelo para nuestro problema}
 
+Después de realizar todas las pruebas de la sección anterior podemos concluir que el modelo preentrenado en \textbf{ImageNet} que mejor funciona con nuestro dataset es \textbf{EfficientNetB0} tras realizar un Ajuste Fino entrenando previamente la última capa solamente. Este modelo llega a alcanzar un \textbf{0.8627748294162244} de Accuracy. Hay que comentar que si hubiésemos usado una de las últimas versiones de EfficientNet, por ejemplo la B7, posiblemente la Accuracy hubiese sido mejor. No hemos podido hacer la prueba empírica debido al coste computacional que conlleva cargar un modelo con tantos parámetros, pero lo apuntamos como posible mejora.
 
 \subsection{Trasnferencia de conocimiento de ImageNet}
 
 
 \subsection{Fallos comunes entre los modelos utilizados}
+
+Al analizar las matrices de confusión nos hemos dado cuenta de que es común para todos los modelos confundir la clase 3 con la clase 7 y viceversa. 
 
 \subsection{Posibles soluciones a estos fallos y futuras mejoras}
