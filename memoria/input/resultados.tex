@@ -78,7 +78,7 @@ Si observamos las curvas de precisión de la \textbf{Figura 19} podemos ver que 
 Accuracy con DenseNet121 entrenando solo ultima capa: 0.8377558756633814
 \end{lstlisting}
 
-
+Con DenseNet121, a diferencia que con ResNet50, vemos como no encontramos tanto sobreajuste tras las primeras épocas, aunque los valores de precisión en el conjunto de test son muy similares, aunque un poco mejores que en ResNet50. Observamos como de nuevo es capaz de clasificar las clases sin mucho problema, a excepción de un par de casos concretos que comentaremos al final de los resultados.
 
 
 
@@ -105,6 +105,7 @@ Accuracy con DenseNet121 entrenando solo ultima capa: 0.8377558756633814
 Accuracy con DenseNet121 tras ajuste fino: 0.8385140257771039
 \end{lstlisting}
 
+Tras aplicar el fine tuning en DenseNet121 mejora muy levemente, de forma casi imperceptible. Como vemos, en ambos casos se ha obtenido buenos resultados lo que nos da a entender que en DenseNet121 los pesos de ImageNet funcionan bastante bien para nuestro problema.
 
 
 \subsubsection{InceptionV3}
