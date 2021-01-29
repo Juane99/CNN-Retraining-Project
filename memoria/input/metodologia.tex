@@ -61,6 +61,27 @@ De cara a mejorar las redes utilizadas hemos realizado distintos experimentos.
 
 Para comenzar, hemos buscado el mejor optimizador posible utilizando una Grid Search, escogiendo finalmente el optimizador Adam, explicado en los fundamentos teoricos de este documento.
 
-Otra de las mejoras introducidas es una ampliación de las redes utilizadas, hemos añadido nuevas capas finales con el objetivo de evitar el sobreajuste de los modelos iniciales, que comentaremos en la sección de resultados, añadiendo capas de dropout.
+Otra de las mejoras introducidas es una ampliación de las redes utilizadas, hemos añadido nuevas capas finales con el objetivo de evitar el sobreajuste de los modelos iniciales, que comentaremos en la sección de resultados, añadiendo capas de dropout y batch normalization.
+
+\begin{lstlisting}
+nueva_red = red.output
+nueva_red = Dense(1000, activation="relu")(nueva_red)
+nueva_red = BatchNormalization(renorm=True)(nueva_red)
+nueva_red = Dropout(0.5)(nueva_red)
+nueva_red = Dense (NUM_CLASES, activation = 'softmax')(nueva_red)
+\end{lstlisting}
 
 También hemos realizado un ajuste fino de la red. Hemos probado tanto a entrenar solo la última capa (capa softmax que sustituye a última capa original y que clasificará la entrada en las clases), y tras eso descongelar la red para hacer el ajuste fino tanto a entrenar las últimas cinco capas más las nuevas capas y tras eso descongelar toda la red y aplicar el ajuste fino.
+
+Ejemplo de crear una red ResNet50 y descongelar las últimas 5 capas.
+
+\begin{lstlisting}
+#  celda para el codigo de resnet50, por defecto sin include_top para añadir la capa Dense con nuestro numero de clases y pesos de imagenet
+red_resnet = ResNet50(include_top = False, pooling = "avg")
+red_resnet.trainable = False
+# ponemos los ultimos cinco como entrenables, el resto los fijamos
+for layer in red_resnet.layers[-5:]:
+  layer.trainable = True
+\end{lstlisting}
+
+Por último, y para todos los casos, hemos añadido early stopping de cara a detener el entrenamiento cuando no se logra mejorar el resultado durante cinco épocas, manteniendo los parámetros de la mejor época y no de la última.

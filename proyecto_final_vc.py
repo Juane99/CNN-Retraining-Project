@@ -268,6 +268,8 @@ def matriz_confusion(y_test ,y_predecida):
 # descargamos el conjunto de datos modificado con las clases a usar y el fichero files.txt,
 # lo descargamos del drive del que tenemos subido el zip, porque va mucho más rápido
 # que leyendolo de drive en colab
+# https://drive.google.com/file/d/1gCsMT1B-M9nwYlyJQQu9snykffo3ZUss/view?usp=sharing
+
 
 #!wget wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1gCsMT1B-M9nwYlyJQQu9snykffo3ZUss' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1gCsMT1B-M9nwYlyJQQu9snykffo3ZUss" -O Images.zip && rm -rf /tmp/cookies.txt
 
