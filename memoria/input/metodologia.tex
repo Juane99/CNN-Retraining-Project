@@ -31,6 +31,24 @@ Una vez intentamos cargar las imágenes en memoria nos dimos cuenta que no era p
 
 \vspace{5 mm}
 
+En el enunciado del proyecto se nos dice que usemos una red preentrenada en \textbf{ImageNet} de entre un conjunto de redes. Después de analizar los proyectos que hemos incluido en la revisión bibliográfica nos hemos dado cuenta de lo interesante que es analizar el comportamiento de cada red usando la misma base de datos. Es por todo lo anterior que hemos utilizado las siguientes redes neuronales en nuestro proyecto:
 
+\begin{itemize}
+
+
+\item{\textbf{ResNet-50:} Esta red está compuesta por 48 capas convolucionales junto con 1 capa MaxPooling2D y 1 capa AveragePooling. Tiene un total de 25,636,712 parámetros y una media de 0.749 de Top-1 Accuracy. Se trata de una red muy útil que se usa tanto dentro como fuera de la Visión por Computador.}
+
+
+\item{\textbf{EfficientNetB0:} Esta red está compuesta por 237 capas divididas en 5 tipos de módulos, donde cada uno de ellos tiene un número de capas diferentes. La red no fue desarrollada por ingenieros, si no por la propia red, la cual utiliza una búsqueda de arquitectura neuronal multiobjetivo que optimiza tanto la precisión como las operaciones de punto flotante. Tiene un total de 5,330,571 parámetros.}
+
+\item{\textbf{DenseNet-121:} Todas las arquitecturas DenseNet están formadas por 4 bloques densos que, dependiendo de la versión que usemos, van a tener diferentes capas en cada uno de esos bloques. Concretamente la versión DenseNet-121 va a tener 6,12,24,16 capas en cada uno de esos bloques respectivamente. Esta versión tiene un total de 8,062,504 parámetros y una media de 0.750 de Top-1 Accuracy.}
+
+
+\item{\textbf{InceptionV3:} Esta red tiene una profundidad de 159 capas. Está compuesta por 11 módulos Inception donde cada módulo consiste en capas MaxPooling2D y capas convolucionales con activación ReLU. Tiene un total de 23,851,784 parámetros y una media de 0.779 de Top-1 Accuracy.}
+
+
+\end{itemize}
+
+\newpage
 
 \subsection{Mejoras sobre las redes utilizadas}
