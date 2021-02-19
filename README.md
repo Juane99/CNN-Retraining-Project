@@ -3,7 +3,7 @@ Final Project of the Computer Vision subject. Course 2020-2021
 
 
 ### How to use 🔧
-In the memory folder you can find the LaTeX files with the documentation of the project.
+In the "memoria" folder you can find the LaTeX files with the documentation of the project.
 There is also a .py file with the whole code of the project.
 
 
