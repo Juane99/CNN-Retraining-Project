@@ -22,7 +22,7 @@ There is also a .py file with the whole code of the project.
 
 ## License 📄
 
-[LICENSE](https://github.com/Juane99/Letters-Game/blob/master/LICENSE) for details
+[LICENSE](https://github.com/Juane99/Proyecto-Final-VC/blob/main/LICENSE) for details
 
 
 ## Thank you all
