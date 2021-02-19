@@ -1,5 +1,6 @@
-# Proyecto-Final-VC
-Final Project of the Computer Vision subject. Course 2020-2021
+# CNN-Retraining-Project
+Final Project of the Computer Vision subject. Course 2020-2021.
+Retraining of Convolutional Neural Networks for a problem not contemplated.
 
 
 ### How to use 🔧
